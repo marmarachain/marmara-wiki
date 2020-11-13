@@ -1,7 +1,6 @@
-# Marmara v.1.0.1 Usage
+## Getting Started with Marmara
 
 ## Linux
-## Getting Started
 
 If you have downloaded and build MCL from source then you can run the commands under ```cd komodo/src``` directory. According to your configuration, ```komodod``` and ```komodo-cli```  may be under different directories. Hence, find where they are and change directory accordingly.
 
