@@ -132,6 +132,25 @@ Later, one can use `importprivkey` method to add the respective private key to t
 ```
 Now, the owner of the assets needs to keep a record of the keyword combination safely to generate the respective privkey whenever needed.
 **Remember that private keys should always be kept secret and so are the keywords!** 
+## Taking Backup of Wallet
+
+Backing up the `wallet.dat` file is very essential as it holds the assets of one.
+On a Linux machine, the file could be found in: `~/.komodo/MCL/wallet.dat`
+
+One method to backup this file is to archive a copy of the file.
+
+```bash
+#Copy the wallet.dat file
+cp -av ~/.komodo/MCL/wallet.dat ~/wallet.dat
+
+#Rename the wallet.dat file
+mv ~/wallet.dat ~/2020-08-09-wallet_backup.dat
+
+# Make an archieve of the wallet.dat file
+tar -czvf ~/2020-08-09-wallet_backup.dat.tgz ~/2020-08-09-wallet_backup.dat
+
+# Move the final file to a secure location
+```
 
 ## Checking the staking/mining mode of your node in Marmara Chain
 
