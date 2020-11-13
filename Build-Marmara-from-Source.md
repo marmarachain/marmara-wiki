@@ -1,5 +1,3 @@
-# Build Instructions
-
 ## Building Marmara Credit Loops Smart Chain From Source
 
 One may also build Marmara Credit Loops Smart Chain from source. This is not required, however building from source is considered as the best practice in a production environment, since this allows one to instantly update to the latest patches and upgrades.
