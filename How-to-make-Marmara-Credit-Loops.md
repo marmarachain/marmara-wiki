@@ -19,7 +19,7 @@ The Credit loops can be made using only activated coins.
 
 **Dispute Expiry:** It is grace period for solving non-redemption problem in credit loops in protocol 2. An issuer may have this time as blocks when creating a credit under protocol 2 without or insufficient collateralization. Before this period expires, an escrow should do all actions according to aggrement with the issuer to solve non-redemption. Otherwise, the escrow is penalized in the system.
 
-###Important Commands for Making Credit Loops
+### Important Commands for Making Credit Loops
 - ```marmararecieve```
 
 This command is used to get a credit from an issuer or an endorser. When asking a credit from an issuer, i.e. the first node, it has a unique use. In other nodes, it is the same.
