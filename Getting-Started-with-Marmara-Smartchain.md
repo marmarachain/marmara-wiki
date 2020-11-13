@@ -1,4 +1,4 @@
-## Getting Started with Marmara
+## How to get started with Marmara?
 
 ## Linux
 
