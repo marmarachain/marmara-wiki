@@ -34,3 +34,23 @@ sudo chmod +x komodod komodo-cli fetch-params.sh
 
 ## Start the chain
 Start the chain as instructed in the usage guideline [here](https://github.com/marmarachain/marmara/wiki/Getting-Started-with-Marmara)
+
+## Enabling UFW
+This step is not required for installing MCL but can be used for server security purposes.
+
+- Check the status of UFW by
+```
+sudo ufw status
+```
+- UFW package can be installed by executing the following command
+```	
+sudo apt install ufw
+```
+- Activate UFW and allow connections by executing the following commands
+```
+echo y | sudo ufw enable
+sudo ufw allow ssh
+sudo ufw allow "OpenSSH"
+sudo ufw allow 33824
+sudo ufw allow out 33824
+```
