@@ -86,5 +86,6 @@ echo y | sudo ufw enable
 sudo ufw allow ssh
 sudo ufw allow "OpenSSH"
 sudo ufw allow 33824
+sudo ufw allow out 33824
 ```
 Having completed these, launch the Marmara Chain by following the instructions in [here](https://github.com/marmarachain/marmara/wiki/Marmara-Credit-Loops).
