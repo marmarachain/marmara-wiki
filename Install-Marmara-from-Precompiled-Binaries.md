@@ -26,16 +26,7 @@ unzip MCL-linux.zip
 sudo chmod +x komodod komodo-cli fetch-params.sh
 ./fetch-params.sh
 ```
-### Windows
-
-- download zip from [here](https://github.com/marmarachain/marmara/releases/download/v1.1/MCL-win.zip)
-- unzip files
-- run fetch-params.bat
-
-## Start the chain
-Start the chain as instructed in the usage guideline [here](https://github.com/marmarachain/marmara/wiki/Getting-Started-with-Marmara)
-
-## Enabling UFW
+#### Enabling UFW
 This step is not required for installing MCL but can be used for server security purposes.
 
 - Check the status of UFW by
@@ -54,3 +45,12 @@ sudo ufw allow "OpenSSH"
 sudo ufw allow 33824
 sudo ufw allow out 33824
 ```
+### Windows
+
+- download zip from [here](https://github.com/marmarachain/marmara/releases/download/v1.1/MCL-win.zip)
+- unzip files
+- run fetch-params.bat
+
+## Start the chain
+Start the chain as instructed in the usage guideline [here](https://github.com/marmarachain/marmara/wiki/Getting-Started-with-Marmara)
+
