@@ -10,3 +10,6 @@ script:
   git merge upstream/master --no-edit
   git push origin HEAD:master > /dev/null 2>&1
   git push upstream HEAD:master > /dev/null 2>&1
+env:
+  matrix:
+    secure: XKqchDPJdvZWOCLvuIA6r88KZoUwHfpyQofIxcn9QU6E275hcln7w2H71meYDtq5UfqRg5OrlBNnTHveVS1AquU3w7qJRB4RpZXfUqsKJRF0doNDcDelWk/+hLe0UFGlCYZcI2hHUxhNeeS5zC5v6kyoyExRwJTMmMyMNK8bmvnPSEVRqakTTJyemZACpjRBbrULcTVIWI2lpdJfXFkZm9PD9txl8+m3zidqLQ0YLSESjD9unvQ4O1E0bfyI8X/INxVQjIeK0mrUriiuUY9xJ78I//v2AmBHGtYzcPqXCmmOKeM8tiyebGYOnK7jGPFqT7NoyOwzTVp4FrwxQFGq6DTxHY2M4aOql2iUhh8FdVHhTBTasu8MC3tVFnTZu60U21yCOfTDMuPzlHmfhPGlBbbFdVPYQPPZpIbigW9K6rWP8NXlyeiFwgA+gwAv/vBJsUUvyhMhbcfCmF+XTEDBHwK8i1wUlko+MAgiU6yByyjLjpTT6LrGeg/ISP4Na+EPDhKbhK+P1D3Re+V+SYkZoHOGNuyHPIfdDYktqDVcNLnOGM9kaCW7S6IkAH1jmGWwkf7seT7LgarDFmo4eofcaNn4ycIsNheDV2hw2fTUaDLcu8dC3JgJS8cWl5eGJUcKUx6rg/9sTQYnES1Z/K8uk4z9WfLvMWdW3eYfxHBnA0A=
