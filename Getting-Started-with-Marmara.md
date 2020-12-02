@@ -249,6 +249,11 @@ In the same way explained earlier, this transaction needs to be validated throug
 ```
 ./komodo-cli -ac_name=MCL listaddressgroupings
 ```
+## MacOS
+
+## Windows
+
+
 References
 ---
 For more detailed information on Komodo Antara Framework and its details, please refer to its extended [developer documentation](https://developers.komodoplatform.com/).
