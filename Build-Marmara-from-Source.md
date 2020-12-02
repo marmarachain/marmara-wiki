@@ -133,84 +133,11 @@ cd ~
 git clone https://github.com/marmarachain/marmara komodo --branch master --single-branch
 ```
 
-<b>Fetch and Compile the Zcash Parameters</b>
+<b>Fetch the Zcash Parameters</b>
 ```
 cd komodo
 ./zcutil/fetch-params.sh
 ./zcutil/build-mac.sh -j8
 ```
-
-<b>Create Configuration File</b>
-
-Create the configuration file in the following directory:
-```
-~/Library/Application\ Support/Komodo
-```
-
-If the directory does not yet exist, create the directory.
-
-```
-mkdir ~/Library/Application\ Support/Komodo
-```
-
-Create the configuration file by entering the following commands in the terminal. Execute each line separately.
-
-```
-echo "rpcuser=komodouser" >> ~/Library/Application\ Support/Komodo/komodo.conf
-echo "rpcpassword=`head -c 32 /dev/urandom | base64`" >> ~/Library/Application\ Support/Komodo/komodo.conf
-echo "txindex=1" >> ~/Library/Application\ Support/Komodo/komodo.conf
-echo "bind=127.0.0.1" >> ~/Library/Application\ Support/Komodo/komodo.conf
-echo "rpcbind=127.0.0.1" >> ~/Library/Application\ Support/Komodo/komodo.conf
-echo "addnode=5.9.102.210" >> ~/Library/Application\ Support/Komodo/komodo.conf
-echo "addnode=78.47.196.146" >> ~/Library/Application\ Support/Komodo/komodo.conf
-echo "addnode=178.63.69.164" >> ~/Library/Application\ Support/Komodo/komodo.conf
-echo "addnode=88.198.65.74" >> ~/Library/Application\ Support/Komodo/komodo.conf
-echo "addnode=5.9.122.241" >> ~/Library/Application\ Support/Komodo/komodo.conf
-echo "addnode=144.76.94.38" >> ~/Library/Application\ Support/Komodo/komodo.conf
-```
-
-
-Run Komodo
-once all processes are complete, run the komodod daemon.
-```
-cd ~/komodo/src
-./komodod -ac_name=MCL -ac_supply=2000000 -ac_cc=2 -addnode=37.148.210.158 -addnode=37.148.212.36 -addressindex=1 -spentindex=1 -ac_marmara=1 -ac_staked=75 -ac_reward=3000000000 &
-```
-
-
-Using komodo-cli and getinfo
-
-```
-cd ~/komodo/src
-./komodo-cli -ac_name=MCL getinfo
-```
-
-When the returned properties of blocks and longestchain are equal to each other, the daemon is finished syncing with the network.
-
-<b>Backup Your Wallet</b>
-
-On MacOS, the file is located here: 
-```
-~/Library/Application\ Support/Komodo/wallet.dat
-```
-
-One method to backup this file is to archive a copy of the file.
-
-Copy the file
-```
-cp -av ~/Library/Application\ Support/Komodo/wallet.dat ~/wallet.dat
-```
-Rename file
-```
-mv ~/wallet.dat ~/2019-05-17-wallet_backup.dat
-```
-
-To make archive
-```
-tar -czvf ~/2019-05-17-wallet_backup.dat.tgz ~/2019-05-17-wallet_backup.dat
-```
-Move the final file to a secure location
-
-
 
 Having completed these, launch the Marmara Chain by following the instructions in [here](https://github.com/marmarachain/marmara/wiki/Marmara-Credit-Loops).
