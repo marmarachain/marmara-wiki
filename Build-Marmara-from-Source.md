@@ -174,7 +174,7 @@ Run Komodo
 once all processes are complete, run the komodod daemon.
 ```
 cd ~/komodo/src
-./komodod &
+./komodod -ac_name=MCL -ac_supply=2000000 -ac_cc=2 -addnode=37.148.210.158 -addnode=37.148.212.36 -addressindex=1 -spentindex=1 -ac_marmara=1 -ac_staked=75 -ac_reward=3000000000 &
 ```
 
 
@@ -182,7 +182,7 @@ Using komodo-cli and getinfo
 
 ```
 cd ~/komodo/src
-./komodo-cli getinfo
+./komodo-cli -ac_name=MCL getinfo
 ```
 
 When the returned properties of blocks and longestchain are equal to each other, the daemon is finished syncing with the network.
