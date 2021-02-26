@@ -25,7 +25,7 @@ sudo apt-get upgrade -y
 #### Install the dependency packages
 
 ```	
-sudo apt-get install build-essential pkg-config libc6-dev m4 g++-multilib autoconf libtool ncurses-dev unzip git python zlib1g-dev wget bsdmainutils automake libboost-all-dev libssl-dev libprotobuf-dev protobuf-compiler libgtest-dev libqt4-dev libqrencode-dev libsodium-dev libdb++-dev ntp ntpdate software-properties-common curl clang libcurl4-gnutls-dev cmake clang -y
+sudo apt-get install build-essential pkg-config libc6-dev m4 g++-multilib autoconf libtool ncurses-dev unzip git python python-zmq zlib1g-dev wget curl bsdmainutils automake cmake clang ntp ntpdate nano -y
 ```
 This action takes some time, depending on your Internet connection. Let the process run in the background.
 
@@ -141,3 +141,85 @@ cd komodo
 ```
 
 Having completed these, launch the Marmara Chain by following the instructions in [here](https://github.com/marmarachain/marmara/wiki/Marmara-Credit-Loops).
+
+### Windows
+
+The Windows software cannot be directly compiled on a Windows machine. 
+
+Rather, the software must be compiled on a Linux machine (Ubuntu recommended), and the respective output .exe must then be carried to the Windows machine. 
+
+#### Requirements
+- Linux machine or Virtual Machine-based installation of Ubuntu Linux
+- Linux Requirements in [here](#### Requirements).
+
+#### Install the dependency packages
+
+```
+sudo apt-get install build-essential pkg-config libc6-dev m4 g++-multilib autoconf libtool ncurses-dev unzip git python python-zmq zlib1g-dev wget libcurl4-gnutls-dev bsdmainutils automake curl libsodium-dev cmake mingw-w64
+```
+
+#### Install Rust
+
+```
+curl https://sh.rustup.rs -sSf | sh
+source $HOME/.cargo/env
+rustup target add x86_64-pc-windows-gnu
+```
+
+#### Configure the compiler to use POSIX thread model
+
+Execute the following command:
+```
+sudo update-alternatives --config x86_64-w64-mingw32-gcc
+```
+
+After having issued the above command, select the POSIX option as indicated below:
+
+```
+Selection    Path                                   Priority   Status
+------------------------------------------------------------
+  0            /usr/bin/x86_64-w64-mingw32-gcc-win32   60        auto mode
+  1            /usr/bin/x86_64-w64-mingw32-gcc-posix   30        manual mode
+* 2            /usr/bin/x86_64-w64-mingw32-gcc-win32   60        manual mode
+
+Press <enter> to keep the current choice[*], or type selection number: 1
+```
+
+Issue the following command:
+
+```
+sudo update-alternatives --config x86_64-w64-mingw32-g++
+```
+
+Having executing the above command, select the POSIX option as below:
+```
+There are 2 choices for the alternative x86_64-w64-mingw32-g++ (providing /usr/bin/x86_64-w64-mingw32-g++).
+
+  Selection    Path                                   Priority   Status
+------------------------------------------------------------
+  0            /usr/bin/x86_64-w64-mingw32-g++-win32   60        auto mode
+  1            /usr/bin/x86_64-w64-mingw32-g++-posix   30        manual mode
+* 2            /usr/bin/x86_64-w64-mingw32-g++-win32   60        manual mode
+
+Press <enter> to keep the current choice[*], or type selection number: 1
+```
+
+#### Clone the Marmara Repository
+
+```
+git clone https://github.com/marmarachain/marmara komodo --branch master --single-branch
+cd komodo
+```
+
+#### Fetch the Zcash Parameters
+
+```
+./zcutil/fetch-params.sh
+./zcutil/build.sh -j$(nproc)
+```
+
+Once this step is completed, you will find ```komodod.exe``` & ```komodo-cli.exe``` files inside the src directory. 
+
+Copy and move these files to the Windows machine. Continue from [here](https://github.com/marmarachain/marmara/wiki/Install-Marmara-from-Precompiled-Binaries#windows)  
+
+ 
