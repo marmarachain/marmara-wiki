@@ -8,7 +8,7 @@ For instance, given that the respective files are located in Desktop under MCL f
 ```
 cd \Desktop\MCL\
 ```
-Then, one can issue the MARMARA commands as in Linux OS explained below without the slashes ```./```
+Then, one can issue the MARMARA commands as in [Linux OS](https://github.com/marmarachain/marmara/wiki/Getting-Started-with-Marmara#linux) explained below **without the slashes ```./```**
 
 An example is given for ```getinfo``` command below:
 
