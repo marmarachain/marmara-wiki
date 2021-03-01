@@ -1,5 +1,21 @@
 ## How to get started with Marmara?
 
+## Windows
+
+Find the directory where ```komodod.exe``` and ```komodo-cli.exe``` are located. Open the command prompt and change to that directory. 
+
+For instance, given that the respective files are located in Desktop under MCL folder; the command should be like below:
+```
+cd \Desktop\MCL\
+```
+Then, one can issue the MARMARA commands as in Linux OS explained below without the slashes ```./```
+
+An example is given for ```getinfo``` command below:
+
+```
+komodo-cli -ac_name=MCL getinfo
+```
+
 ## Linux
 
 If you have downloaded and build MCL from source then you can run the commands under ```cd komodo/src``` directory. According to your configuration, ```komodod``` and ```komodo-cli```  may be under different directories. Hence, find where they are and change directory accordingly.
@@ -251,7 +267,6 @@ In the same way explained earlier, this transaction needs to be validated throug
 ```
 ## MacOS
 
-## Windows
 
 
 References
