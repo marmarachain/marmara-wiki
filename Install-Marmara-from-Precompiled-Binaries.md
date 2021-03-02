@@ -46,6 +46,41 @@ sudo ufw allow "OpenSSH"
 sudo ufw allow 33824
 sudo ufw allow out 33824
 ```
+
+### MacOS
+
+Issue the following command in a terminal to install the command line tools:
+
+```
+xcode-select –install
+```
+
+Download the .zip file from Releases page under Assets [here](https://github.com/marmarachain/marmara/releases/) to your macOS machine and extract the files. Change directory to the location of komodod & komodo-cli on the terminal. 
+
+Run the following command:  
+
+```sh
+./fetch-params.sh
+```
+
+## Start and Run the Marmara Chain
+
+To start the chain, open the command prompt and execute the following sets of commands:
+```
+./komodod.exe -ac_name=MCL -ac_supply=2000000 -ac_cc=2 -addnode=37.148.210.158 -addnode=37.148.212.36 -addressindex=1 -spentindex=1 -ac_marmara=1 -ac_staked=75 -ac_reward=3000000000
+```
+To stop the chain:
+```
+./komodo-cli.exe -ac_name=MCL stop
+```
+
+## Backup Your Wallet
+
+Backing up your wallet.dat file is **very critical**. One method to backup this file is to archive a copy of the file.
+
+On MacOS, the wallet.dat file is located here: ```~/Library/Application\ Support/Komodo/wallet.dat```
+
+
 ### Windows
 
 #### Downloading Files from Releases

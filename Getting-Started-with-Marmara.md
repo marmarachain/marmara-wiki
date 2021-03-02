@@ -1,5 +1,22 @@
 ## How to get started with Marmara?
 
+## MacOS
+
+Find the directory where ```komodod``` and ```komodo-cli``` are located. Open the command prompt and change to that directory. 
+
+### Using komodo-cli and getinfo
+
+An example is given for ```getinfo``` command below:
+
+```
+./komodo-cli -ac_name=MCL getinfo
+```
+
+When the returned properties of ```blocks``` and ```longestchain``` are equal to each other, the daemon is finished syncing with the network.
+
+One can interact with the MARMARA blockchain in MacOS by issuing the MARMARA commands as in [Linux OS](https://github.com/marmarachain/marmara/wiki/Getting-Started-with-Marmara#linux).
+
+
 ## Windows
 
 Find the directory where ```komodod.exe``` and ```komodo-cli.exe``` are located. Open the command prompt and change to that directory. 
@@ -234,7 +251,7 @@ This command returns detailed information on nearest connected nodes to the chai
 ```
 ```marmarainfo``` command returns important details such as the normal amount in the pubkey through ```"myPubkeyNormalAmount"```; the activated amount through  ```"myActivatedAmount"```; the details of credit loops made through ```"Loops"```; the total amount locked in credit loops through ```"TotalLockedInLoop"```; the number of credit loops closed through ```"numclosed"```; and the details of credit loops closed through ```"closed"```.
 
-##Activating and Deactivating Coins
+## Activating and Deactivating Coins
 
 - ```marmaralock``` is used to activate the coins. Active coins are needed for staking and if there are none then even if the staking mode is on, no blocks would be found through staking. The entire command is given below and the **amount** is to be replaced by the amount of coins such as 1000.  
 ```  
@@ -265,9 +282,39 @@ In the same way explained earlier, this transaction needs to be validated throug
 ```
 ./komodo-cli -ac_name=MCL listaddressgroupings
 ```
-## MacOS
 
+## Marmaraamountstat
 
+This command is used to get all the activated, normal and locked in loop amount of the Marmara blockchain irrespective of the owner.If the begin_height and end_height inputs are set to zero(0), it gets the entire set of data from blocks.
+
+```
+./komodo-cli -ac_name=MCL marmaraamountstat begin_height end_height
+```
+
+Example:
+
+```
+./komodo-cli -ac_name=MCL marmaraamountstat 50000 60000
+```
+
+The result of this command is presented below:
+```
+{
+  "result": "success",
+  "BeginHeight": 50000,
+  "EndHeight": 60000,
+  "TotalNormals": 166854.85464948,
+  "TotalPayToScriptHash": 0.00000000,
+  "TotalActivated": 582681.11953150,
+  "TotalLockedInLoops": 237510.00000000,
+  "TotalUnknownCC": 0.02820000,
+  "SpentNormals": 161377.88109325,
+  "SpentPayToScriptHash": 0.00000000,
+  "SpentActivated": 382128.12128773,
+  "SpentLockedInLoops": 143510.00000000,
+  "SpentUnknownCC": 0.00000000
+}
+```
 
 References
 ---

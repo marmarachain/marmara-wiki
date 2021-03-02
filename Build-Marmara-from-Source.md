@@ -1,3 +1,16 @@
+The basic Komodo software package includes two applications.
+
+#### komodod
+
+The komodod software application is the Smart Chain daemon that powers all Komodo blockchains.
+#### komodo-cli
+
+The komodo-cli software application allows a developer to execute API calls to komodod via the command line.
+
+#### Both are Installed Automatically
+
+Both of these software applications are installed in the ```~/komodo/src/``` directory as a part of any of the following installation procedures.
+
 ## Building Marmara Credit Loops Smart Chain From Source
 
 One may also build Marmara Credit Loops Smart Chain from source. This is not required, however building from source is considered as the best practice in a production environment, since this allows one to instantly update to the latest patches and upgrades.
@@ -89,7 +102,6 @@ sudo ufw allow 33824
 sudo ufw allow out 33824
 ```
 
-
 ### macOS
 
 #### Requirements
@@ -97,21 +109,21 @@ sudo ufw allow out 33824
 - OSX (version > 10.11)
 - Minimum 4GB of free RAM (8GB+ recommended)
 
-<br>
-<b>Ensure Command Line Tools are Installed</b>
+
+#### Ensure Command Line Tools are Installed
 
 Issue the following command in a terminal.
 ```
 xcode-select –install
 ```
-<b>Ensure brew is Installed</b>
+#### Ensure brew is Installed
 
 We use the software brew to install dependencies. If you have the latest version of brew installed already, you may skip this step.
 ```
 usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew install/master/install)"
 ```
 
-<b>Use brew to Install Dependencies</b>
+#### Use brew to Install Dependencies
 
 Execute each command separately
 ```
@@ -126,14 +138,14 @@ brew install coreutils
 brew install wget
 ```
 
-<b>Clone the Marmara Credit Loops Repository</b>
+#### Clone the Marmara Credit Loops Repository
 
 ```
 cd ~
 git clone https://github.com/marmarachain/marmara komodo --branch master --single-branch
 ```
 
-<b>Fetch the Zcash Parameters</b>
+#### Fetch the Zcash Parameters
 ```
 cd komodo
 ./zcutil/fetch-params.sh
