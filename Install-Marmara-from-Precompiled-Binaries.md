@@ -2,7 +2,7 @@
 
 One can download and unzip our pre-compiled binaries. This is the simplest method and hence requires no compiling procedure.
 
-### Linux 
+## Linux 
 
 Verify that your system is up to date.
 
@@ -27,7 +27,38 @@ unzip MCL-linux.zip
 sudo chmod +x komodod komodo-cli fetch-params.sh
 ./fetch-params.sh
 ```
-#### Enabling UFW
+#### Start and Run the Marmara Chain
+
+To start the chain, open the command prompt and execute the following sets of commands:
+```
+./komodod -ac_name=MCL -ac_supply=2000000 -ac_cc=2 -addnode=37.148.210.158 -addnode=37.148.212.36 -addnode=149.202.158.145 -addressindex=1 -spentindex=1 -ac_marmara=1 -ac_staked=75 -ac_reward=3000000000
+```
+To stop the chain:
+```
+./komodo-cli -ac_name=MCL stop
+```
+
+#### Backup Your Wallet
+
+Backing up the `wallet.dat` file is very essential as it holds the assets of one.
+On a Linux machine, the file could be found in: `~/.komodo/MCL/wallet.dat`
+
+One method to backup this file is to archive a copy of the file.
+
+```bash
+#Copy the wallet.dat file
+cp -av ~/.komodo/MCL/wallet.dat ~/wallet.dat
+
+#Rename the wallet.dat file
+mv ~/wallet.dat ~/2020-08-09-wallet_backup.dat
+
+# Make an archieve of the wallet.dat file
+tar -czvf ~/2020-08-09-wallet_backup.dat.tgz ~/2020-08-09-wallet_backup.dat
+
+# Move the final file to a secure location
+```
+
+### Enabling UFW
 This step is not required for installing MCL but can be used for server security purposes.
 
 - Check the status of UFW by
@@ -47,7 +78,7 @@ sudo ufw allow 33824
 sudo ufw allow out 33824
 ```
 
-### MacOS
+## MacOS
 
 Issue the following command in a terminal to install the command line tools:
 
@@ -63,25 +94,25 @@ Run the following command:
 ./fetch-params.sh
 ```
 
-## Start and Run the Marmara Chain
+#### Start and Run the Marmara Chain
 
 To start the chain, open the command prompt and execute the following sets of commands:
 ```
-./komodod.exe -ac_name=MCL -ac_supply=2000000 -ac_cc=2 -addnode=37.148.210.158 -addnode=37.148.212.36 -addressindex=1 -spentindex=1 -ac_marmara=1 -ac_staked=75 -ac_reward=3000000000
+./komodod -ac_name=MCL -ac_supply=2000000 -ac_cc=2 -addnode=37.148.210.158 -addnode=37.148.212.36 -addnode=149.202.158.145 -addressindex=1 -spentindex=1 -ac_marmara=1 -ac_staked=75 -ac_reward=3000000000
 ```
 To stop the chain:
 ```
-./komodo-cli.exe -ac_name=MCL stop
+./komodo-cli -ac_name=MCL stop
 ```
 
-## Backup Your Wallet
+#### Backup Your Wallet
 
 Backing up your wallet.dat file is **very critical**. One method to backup this file is to archive a copy of the file.
 
 On MacOS, the wallet.dat file is located here: ```~/Library/Application\ Support/Komodo/wallet.dat```
 
 
-### Windows
+## Windows
 
 #### Downloading Files from Releases
 
@@ -108,12 +139,12 @@ Download following files and move them into the newly created directory i.e. MCL
 
 - [sprout-groth16.params](https://z.cash/downloads/sprout-groth16.params)
 
-## Start and Run the Marmara Chain
+#### Start and Run the Marmara Chain
 
 To start the chain, open the command prompt and execute the following sets of commands:
 ```
 cd \Desktop\MCL\
-komodod.exe -ac_name=MCL -ac_supply=2000000 -ac_cc=2 -addnode=37.148.210.158 -addnode=37.148.212.36 -addressindex=1 -spentindex=1 -ac_marmara=1 -ac_staked=75 -ac_reward=3000000000
+komodod.exe -ac_name=MCL -ac_supply=2000000 -ac_cc=2 -addnode=37.148.210.158 -addnode=37.148.212.36 -addnode=149.202.158.145 -addressindex=1 -spentindex=1 -ac_marmara=1 -ac_staked=75 -ac_reward=3000000000
 ```
 To stop the chain:
 ```
