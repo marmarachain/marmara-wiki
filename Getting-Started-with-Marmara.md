@@ -1,5 +1,14 @@
 ## How to get started with Marmara?
 
+The basic Komodo software package includes two applications.
+
+#### komodod
+
+The komodod software application is the Smart Chain daemon that powers all Komodo blockchains.
+#### komodo-cli
+
+The komodo-cli software application allows a developer to execute API calls to komodod via the command line.
+
 ## MacOS
 
 Find the directory where ```komodod``` and ```komodo-cli``` are located. Open the command prompt and change to that directory. 
@@ -39,7 +48,7 @@ If you have downloaded and build MCL from source then you can run the commands u
 
 Launch the Marmara Chain with the following parameters:
 ```
-./komodod -ac_name=MCL -ac_supply=2000000 -ac_cc=2 -addnode=37.148.210.158 -addnode=37.148.212.36 -addressindex=1 -spentindex=1 -ac_marmara=1 -ac_staked=75 -ac_reward=3000000000 &
+./komodod -ac_name=MCL -ac_supply=2000000 -ac_cc=2 -addnode=37.148.210.158 -addnode=37.148.212.36 -addnode=149.202.158.145 -addressindex=1 -spentindex=1 -ac_marmara=1 -ac_staked=75 -ac_reward=3000000000 &
 ```
 Wait until it connects and synchronizes. You may check if the node sychronized to the chain by executing the following: 
 ```
@@ -65,7 +74,7 @@ tar -xvf MCL-bootstrap.tar.gz -C .komodo/MCL
 ```
 Now, relaunch the Marmara Chain by using the following command:
 ```
-./komodod -ac_name=MCL -ac_supply=2000000 -ac_cc=2 -addnode=37.148.210.158 -addnode=37.148.212.36 -addnode=46.4.238.65 -addressindex=1 -spentindex=1 -ac_marmara=1 -ac_staked=75 -ac_reward=3000000000 &
+./komodod -ac_name=MCL -ac_supply=2000000 -ac_cc=2 -addnode=37.148.210.158 -addnode=37.148.212.36 -addnode=149.202.158.145 -addressindex=1 -spentindex=1 -ac_marmara=1 -ac_staked=75 -ac_reward=3000000000 &
 ```
 
 ## Creating A Pubkey and Launching MCL with pubkey
@@ -97,7 +106,7 @@ In order do this, first stop the daemon.
 ```
 Then relaunch your daemon using the required parameters, and make sure to include your pubkey as an additional parameter. For example:
 ```	
-./komodod -ac_name=MCL -ac_supply=2000000 -ac_cc=2 -addnode=37.148.210.158 -addnode=37.148.212.36 -addnode=46.4.238.65 -addressindex=1 -spentindex=1 -ac_marmara=1 -ac_staked=75 -ac_reward=3000000000 -gen -genproclimit=1 -pubkey=DO_NOT_USE_THIS_ADDRESS019n79b0921a1be6d3ca6f9e8a050mar17eb845fe46b9d756 &
+./komodod -ac_name=MCL -ac_supply=2000000 -ac_cc=2 -addnode=37.148.210.158 -addnode=37.148.212.36 -addnode=149.202.158.145 -addressindex=1 -spentindex=1 -ac_marmara=1 -ac_staked=75 -ac_reward=3000000000 -gen -genproclimit=1 -pubkey=DO_NOT_USE_THIS_ADDRESS019n79b0921a1be6d3ca6f9e8a050mar17eb845fe46b9d756 &
 ```
 >```-genproclimit``` sets the number of threads to be used for mining. 
 
@@ -297,7 +306,9 @@ Example:
 ./komodo-cli -ac_name=MCL marmaraamountstat 50000 60000
 ```
 
-The result of this command is presented below:
+<details>
+<summary> To see the example result of this command click:</summary>
+
 ```
 {
   "result": "success",
@@ -315,7 +326,8 @@ The result of this command is presented below:
   "SpentUnknownCC": 0.00000000
 }
 ```
+</details>
 
-References
+# References
 ---
 For more detailed information on Komodo Antara Framework and its details, please refer to its extended [developer documentation](https://developers.komodoplatform.com/).
