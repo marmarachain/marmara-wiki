@@ -15,7 +15,7 @@ Find the directory where ```komodod``` and ```komodo-cli``` are located. Open th
 
 ### Using komodo-cli and getinfo
 
-An example is given for ```getinfo``` command below:
+To see general information about MCL Smart chain, execute the ```getinfo``` command below:
 
 ```
 ./komodo-cli -ac_name=MCL getinfo
@@ -32,9 +32,11 @@ Find the directory where ```komodod.exe``` and ```komodo-cli.exe``` are located.
 
 For instance, given that the respective files are located in Desktop under MCL folder; the command should be like below:
 ```
-cd \Desktop\MCL\
+cd Desktop\MCL\
 ```
 Then, one can issue the MARMARA commands as in [Linux OS](https://github.com/marmarachain/marmara/wiki/Getting-Started-with-Marmara#linux) explained below **without the slashes ```./```**
+
+### Using komodo-cli and getinfo
 
 An example is given for ```getinfo``` command below:
 
@@ -50,7 +52,7 @@ Launch the Marmara Chain with the following parameters:
 ```
 ./komodod -ac_name=MCL -ac_supply=2000000 -ac_cc=2 -addnode=37.148.210.158 -addnode=37.148.212.36 -addnode=149.202.158.145 -addressindex=1 -spentindex=1 -ac_marmara=1 -ac_staked=75 -ac_reward=3000000000 &
 ```
-Wait until it connects and synchronizes. You may check if the node sychronized to the chain by executing the following: 
+Wait until it connects and synchronizes. You may check if the node synchronized to the chain by executing the following: 
 ```
 ./komodo-cli -ac_name=MCL getinfo
 ```
@@ -60,54 +62,145 @@ Wait until it connects and synchronizes. You may check if the node sychronized t
 Newcomers need to wait for all the blocks to be downloaded to their machine. To fasten up this process, [bootstrap](https://eu.bootstrap.dexstats.info/MCL-bootstrap.tar.gz) may be downloaded and used. 
 
 Stop the Marmara blockchain by executing the following command:
+<details>
+    <summary> Click for command in Linux: </summary>
+    
 ```	
 ./komodo-cli -ac_name=MCL stop
 ```
+</details>
+
+<details>
+    <summary> Click for command in Windows: </summary>
+    
+```	
+komodo-cli.exe -ac_name=MCL stop
+```
+</details>
+
 
 To install bootstrap from the command line, execute the following command:
 ```
 wget https://eu.bootstrap.dexstats.info/MCL-bootstrap.tar.gz
 ```
+
 Now, in the following command, tar will extract the bootstrap contents in a specific directory as shown below:
+
 ```
 tar -xvf MCL-bootstrap.tar.gz -C .komodo/MCL
 ```
+
 Now, relaunch the Marmara Chain by using the following command:
+
+<details>
+    <summary> Click for command in Linux: </summary>
+    
 ```
 ./komodod -ac_name=MCL -ac_supply=2000000 -ac_cc=2 -addnode=37.148.210.158 -addnode=37.148.212.36 -addnode=149.202.158.145 -addressindex=1 -spentindex=1 -ac_marmara=1 -ac_staked=75 -ac_reward=3000000000 &
 ```
+</details>
+
+<details>
+    <summary> Click for command in Windows: </summary>
+    
+```
+komodod.exe -ac_name=MCL -ac_supply=2000000 -ac_cc=2 -addnode=37.148.210.158 -addnode=37.148.212.36 -addnode=149.202.158.145 -addressindex=1 -spentindex=1 -ac_marmara=1 -ac_staked=75 -ac_reward=3000000000 &
+```
+</details> 
+
 
 ## Creating A Pubkey and Launching MCL with pubkey
 
-To use Marmara Credit Loops, a user must have a **pubkey** and launch the chain with a **pubkey**. Otherwise, any mining or staking in the smart chain would be in vain. Since all mined or staked coins will also be sent to this address. 
+To use Marmara Credit Loops, a user must have a **pubkey** and launch the chain with a **pubkey**. Otherwise, any mining or staking in the smart chain would be **in vain**. Since all mined or staked coins will also be sent to this address. 
 
-In order to get a pubkey, launch the Marmara Chain with the normal launch parameters and execute the [getnewaddress](https://developers.komodoplatform.com/basic-docs/smart-chains/smart-chain-api/wallet.html#getnewaddress) API command.
+In order to get a pubkey, launch the Marmara Chain with the normal launch parameters and execute the [getnewaddress](https://developers.komodoplatform.com/basic-docs/smart-chains/smart-chain-api/wallet.html#getnewaddress) API command:
+
+<details>
+    <summary> Click for command in Linux: </summary>
+    
 ```	
 ./komodo-cli -ac_name=MCL getnewaddress
 ```
-This will in turn return a new address:
+</details>
+
+<details>
+    <summary> Click for command in Windows: </summary>
+    
+```	
+komodo-cli.exe -ac_name=MCL getnewaddress
+```
+</details> 
+
+<details>
+    <summary> getnewaddress command will in turn return a new address:  </summary>
+
 ```	
 DO_NOT_USE_THIS_ADDRESSgg5jonaes1J5L786
 ```
+</details>
+
 Now, execute the [validateaddress](https://developers.komodoplatform.com/basic-docs/smart-chains/smart-chain-api/util.html#validateaddress) command.
+<details>
+    <summary> Click for command in Linux: </summary>
+    
 ```	
 ./komodo-cli -ac_name=MCL validateaddress DO_NOT_USE_THIS_ADDRESSgg5jonaes1J5L786
 ```
-This will return a json object with many properties. In the properties one can see:
+</details>
+
+<details>
+    <summary> Click for command in Windows: </summary>
+    
+```	
+komodo-cli.exe -ac_name=MCL validateaddress DO_NOT_USE_THIS_ADDRESSgg5jonaes1J5L786
+```
+</details>
+
+<details>
+    <summary> This will return a json object with many properties. In the properties one can see: </summary>
+    
 ```	
 "pubkey": "DO_NOT_USE_THIS_ADDRESS019n79b0921a1be6d3ca6f9e8a050mar17eb845fe46b9d756"
 ```
+</details> 
 
-This will be your MCL pubkey, make sure to note it. You must now indicate it to the daemon.
+This will be your MCL pubkey, make sure to note it. You must now indicate it to the daemon. In order do this, first **stop** the daemon using the following command:
 
-In order do this, first stop the daemon.
+<details>
+    <summary> Click for command in Linux: </summary>
+    
 ```	
 ./komodo-cli -ac_name=MCL stop
 ```
+</details> 
+
+<details>
+    <summary> Click for command in Windows: </summary>
+    
+```	
+komodo-cli.exe -ac_name=MCL stop
+```
+</details> 
+
 Then relaunch your daemon using the required parameters, and make sure to include your pubkey as an additional parameter. For example:
+
+<details>
+    <summary> Click for command in Linux: </summary>
+    
 ```	
 ./komodod -ac_name=MCL -ac_supply=2000000 -ac_cc=2 -addnode=37.148.210.158 -addnode=37.148.212.36 -addnode=149.202.158.145 -addressindex=1 -spentindex=1 -ac_marmara=1 -ac_staked=75 -ac_reward=3000000000 -gen -genproclimit=1 -pubkey=DO_NOT_USE_THIS_ADDRESS019n79b0921a1be6d3ca6f9e8a050mar17eb845fe46b9d756 &
 ```
+</details>
+
+<details>
+    <summary> Click for command in Windows: </summary>
+    
+```	
+komodod.exe -ac_name=MCL -ac_supply=2000000 -ac_cc=2 -addnode=37.148.210.158 -addnode=37.148.212.36 -addnode=149.202.158.145 -addressindex=1 -spentindex=1 -ac_marmara=1 -ac_staked=75 -ac_reward=3000000000 -gen -genproclimit=1 -pubkey=DO_NOT_USE_THIS_ADDRESS019n79b0921a1be6d3ca6f9e8a050mar17eb845fe46b9d756 &
+```
+</details>
+
+
 >```-genproclimit``` sets the number of threads to be used for mining. 
 
 >In the command above, if the parameter ```-genproclimit``` is set to 1 such as ```-gen -genproclimit=1``` launches the Marmara Chain with single (1) CPU. Note that you can set this to any number of cores such as 3. 
