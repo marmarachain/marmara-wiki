@@ -56,7 +56,7 @@ Wait until it connects and synchronizes. You may check if the node synchronized 
 ./komodo-cli -ac_name=MCL getinfo
 ```
 
-**_Indexing (Optional step for fastening up the process of downloading all the blocks)_**
+## _Indexing (Optional step for fastening up the process of downloading all the blocks)_**
 
 Newcomers need to wait for all the blocks to be downloaded to their machine. To fasten up this process, [bootstrap](https://eu.bootstrap.dexstats.info/MCL-bootstrap.tar.gz) may be downloaded and used. 
 
@@ -79,15 +79,18 @@ komodo-cli.exe -ac_name=MCL stop
 
 
 To install bootstrap from the command line, execute the following command:
+<details>
+    <summary> Click for command in Linux: </summary>
+    
 ```
 wget https://eu.bootstrap.dexstats.info/MCL-bootstrap.tar.gz
 ```
-
 Now, in the following command, tar will extract the bootstrap contents in a specific directory as shown below:
 
 ```
 tar -xvf MCL-bootstrap.tar.gz -C .komodo/MCL
 ```
+</details>
 
 Now, relaunch the Marmara Chain by using the following command:
 
