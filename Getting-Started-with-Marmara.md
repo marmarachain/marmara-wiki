@@ -182,9 +182,11 @@ This will be your MCL pubkey, make sure to note it. You must now indicate it to 
 ```	
 komodo-cli.exe -ac_name=MCL stop
 ```
-</details> 
+</details>
 
-Then relaunch your daemon using the required parameters, and make sure to include your pubkey as an additional parameter. For example:
+### Launching MCL with pubkey
+
+Relaunch your daemon using the required parameters, and make sure to include your pubkey as an additional parameter. For example:
 
 <details>
     <summary> Click for command in Linux: </summary>
@@ -215,9 +217,23 @@ komodod.exe -ac_name=MCL -ac_supply=2000000 -ac_cc=2 -addnode=37.148.210.158 -ad
 
 The `dumpprivkey` method reveals the private key corresponding to the indicated address.
 The command for this is given below for demo purposes.
+
+<details>
+    <summary> Click for command in Linux: </summary>
+    
 ```
 ./komodo-cli -ac_name=MCL dumpprivkey "PWqwYaWNEVT7V9SdfFHARWnoB7vcpSfdvs"
 ```
+</details>
+
+<details>
+    <summary> Click for command in Windows: </summary>
+    
+```
+komodo-cli.exe -ac_name=MCL dumpprivkey "PWqwYaWNEVT7V9SdfFHARWnoB7vcpSfdvs"
+```
+</details>
+
 The response of the command gives the private address as in the example below:
 ```
 DONOTUSETHISxxxxxxxxxxxxxxxxx7KkCmRnnSg7iXvRUqhYoxC9Y
@@ -227,18 +243,46 @@ DONOTUSETHISxxxxxxxxxxxxxxxxx7KkCmRnnSg7iXvRUqhYoxC9Y
 
 The `importprivkey` method adds a private key (as returned by dumpprivkey) to your wallet. The command may take several arguments as described in [here](https://developers.komodoplatform.com/basic-docs/smart-chains/smart-chain-api/wallet.html#importprivkey).
 The simplest form of command for this is given below for demo purposes.
+
+<details>
+    <summary> Click for command in Linux: </summary>
+    
 ```
 ./komodo-cli -ac_name=MCL importprivkey "DONOTUSETHISxxxxxxxxxxxxxxxxx7KkCmRnnSg7iXvRUqhYoxC9Y"
 ```
+</details>
+
+<details>
+    <summary> Click for command in Windows: </summary>
+    
+```
+komodo-cli.exe -ac_name=MCL importprivkey "DONOTUSETHISxxxxxxxxxxxxxxxxx7KkCmRnnSg7iXvRUqhYoxC9Y"
+```
+</details>
+
 The response of the command gives the wallet address as in the demo response below:
 ```
 R9z796AehK5b6NCPeVkGUHSpJnawerf8oP
 ```
 Now, the wallet address can be validated through ```validateaddress``` to get the MCL pubkey:
+
+<details>
+    <summary> Click for command in Linux: </summary>
+    
 ```
 ./komodo-cli -ac_name=MCL validateaddress R9z796AehK5b6NCPeVkGUHSpJnawerf8oP
 ``` 
-After getting the respective MCL pubkey from the response of the command above, relaunch the Marmara Chain with that pubkey.  
+</details>
+
+<details>
+    <summary> Click for command in Windows: </summary>
+    
+```
+komodo-cli.exe -ac_name=MCL validateaddress R9z796AehK5b6NCPeVkGUHSpJnawerf8oP
+``` 
+</details>
+
+After getting the respective MCL pubkey from the response of the command above, relaunch the Marmara Chain with that pubkey as in [here](https://github.com/marmarachain/marmara/wiki/Getting-Started-with-Marmara#launching-mcl-with-pubkey) .  
 
 ## Creating a Wallet Address from One's own Words in Marmara Blockchain
 
@@ -289,12 +333,25 @@ tar -czvf ~/2020-08-09-wallet_backup.dat.tgz ~/2020-08-09-wallet_backup.dat
 # Move the final file to a secure location
 ```
 
-## Checking the staking/mining mode of your node in Marmara Chain
+## Checking the Staking/Mining mode of your node in Marmara Chain
 
 The following command helps to check the mode of the node:
+<details>
+    <summary> Click for command in Linux: </summary>
+    
 ```	 
 ./komodo-cli -ac_name=MCL getgenerate
 ```
+</details>
+
+<details>
+    <summary> Click for command in Windows: </summary>
+    
+```	 
+komodo-cli.exe -ac_name=MCL getgenerate
+```
+</details>
+
 Once the command given above is executed, the following JSON object gets returned:
 ```	
 {
@@ -309,14 +366,41 @@ From above, it can be seen that the node is in the **mining** node.
 >```"numthreads": 1``` refers to the number of cores used for mining. In this case, this parameter was set to one earlier.
 >
 To change mode of the node to **staking**, execute the command below:
+
+<details>
+    <summary> Click for command in Linux: </summary>
+    
 ```	   
  ./komodo-cli -ac_name=MCL setgenerate true 0
 ```
+</details>
+
+<details>
+    <summary> Click for command in Windows: </summary>
+    
+```	   
+komodo-cli.exe -ac_name=MCL setgenerate true 0
+```
+</details>
+
 Now checking the status of the node:
+
+<details>
+    <summary> Click for command in Linux: </summary>
+    
 ```
  ./komodo-cli -ac_name=MCL getgenerate
 ```
-This returns a JSON object:
+</details>
+<details>
+    <summary> Click for command in Windows: </summary>
+    
+```
+komodo-cli.exe -ac_name=MCL getgenerate
+```
+</details>
+
+This command returns a JSON object:
 ```
 {
   "staking": true,
@@ -329,18 +413,91 @@ This returns a JSON object:
 ## Sending Coins to an Address
 One may directly send a payment to a given address by issuing the following command. The payment is made based on the **Normal Amount** available on the respective wallet.
 The amount is rounded to the nearest 0.00000001. A transaction fee is deducted for the transaction being made from one's Normal Amount.
+
+<details>
+    <summary> Click for command in Linux: </summary>
+    
 ```
 ./komodo-cli -ac_name=MCL sendtoaddress "MCL_address" amount
 ```
+</details>
+
+<details>
+    <summary> Click for command in Windows: </summary>
+    
+```
+komodo-cli.exe -ac_name=MCL sendtoaddress "MCL_address" amount
+```
+</details>
+
 > **Note:** This command directly sends payment to the specified address and should be used carefully. As, the payment sent through this method cannot be redeemed later. 
 
 
 ## Reaching Details about Node and Wallet in Marmara Chain
 The following commands are useful for getting details about your node and wallet.
-- ```getinfo``` 
+- ```getinfo```
+<details>
+    <summary> Click for command in Linux: </summary>
+    
 ```
 ./komodo-cli -ac_name=MCL getinfo
 ```
+</details>
+<details>
+    <summary> Click for command in Windows: </summary>
+    
+```
+komodo-cli.exe -ac_name=MCL getinfo
+```
+</details>
+
+<details>
+<summary> A typical result is given below: </summary>
+
+```
+{
+  "version": 3000300,
+  "protocolversion": 170009,
+  "KMDversion": "0.5.3",
+  "synced": false,
+  "notarized": 0,
+  "prevMoMheight": 0,
+  "notarizedhash": "0000000000000000000000000000000000000000000000000000000000000000",
+  "notarizedtxid": "0000000000000000000000000000000000000000000000000000000000000000",
+  "notarizedtxid_height": "mempool",
+  "KMDnotarized_height": 0,
+  "notarized_confirms": 0,
+  "walletversion": 60000,
+  "balance": 0.00000000,
+  "blocks": 72200,
+  "longestchain": 586375,
+  "tiptime": 1583613252,
+  "difficulty": 38227.25456170298,
+  "keypoololdest": 1614160564,
+  "keypoolsize": 101,
+  "paytxfee": 0.00000000,
+  "sapling": 61,
+  "timeoffset": 0,
+  "connections": 16,
+  "proxy": "",
+  "testnet": false,
+  "relayfee": 0.00000100,
+  "errors": "",
+  "CCid": 2,
+  "name": "MCL",
+  "p2pport": 33824,
+  "rpcport": 33825,
+  "magic": -1687041972,
+  "premine": 2000000,
+  "reward": "3000000000",
+  "halving": "0",
+  "decay": "0",
+  "endsubsidy": "0",
+  "notarypay": "0",
+  "staked": 75
+}
+```
+</details>
 
 ```getinfo``` command returns important details such as the version of MARMARA through ```"version"```; synchronization status of your node through ```synced``` (this parameter's value is true if the parameters "blocks" and "longestchain" are equal ); difficulty of the chain through ```"difficulty"```; number of nearest connected nodes to the chain through ```"connections"```; the pubkey with which you are connected to the chain through ```"pubkey":```
 
