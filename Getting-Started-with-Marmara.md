@@ -110,6 +110,7 @@ komodod.exe -ac_name=MCL -ac_supply=2000000 -ac_cc=2 -addnode=37.148.210.158 -ad
 ```
 </details> 
 
+** Using Bootstrap is not a recommended approach to download the blocks since the bootstrap file may be distorted. The recommended approach is to index the blockchain from the start.**
 
 ## Creating A Pubkey and Launching MCL with pubkey
 
@@ -286,16 +287,30 @@ After getting the respective MCL pubkey from the response of the command above, 
 
 ## Creating a Wallet Address from One's own Words in Marmara Blockchain
 
-As previously explained, one can make use of the command `./komodo-cli -ac_name=MCL getnewaddress` in order to get a wallet address and then use the command `./komodo-cli -ac_name=MCL validateaddress "Rwalletno"` to get the respective Privkey.
+For Linux OS; as previously explained, one can make use of the command `./komodo-cli -ac_name=MCL getnewaddress` in order to get a wallet address and then use the command `./komodo-cli -ac_name=MCL validateaddress "Rwalletno"` to get the respective Privkey.
 
 However, the `Privkey` received in this way consists of a hard to remember combination of letters and number. Note that keeping this privkey safe and secure and reachable only by you is very important and essential way to reach your assets. Hence, one can generate a privkey from his/her own set of words and keep a record of these words to generate the respective privkey whenerever needed.
 
 For this purpose, create a set of keywords that have **no special characters** in them. For instance: `"You can create your own keywords and generate a privkey from these whenever needed"`.
 
 Then use the following command to get the respective privkey generated:
+
+<details>
+    <summary> Click for command in Linux: </summary>
+    
 ```
 ./komodo-cli -ac_name=MCL convertpassphrase "You can create your own keywords and generate a privkey from these whenever needed"
-``` 
+```
+</details>
+
+<details>
+    <summary> Click for command in Windows: </summary>
+    
+```
+komodo-cli.exe -ac_name=MCL convertpassphrase "You can create your own keywords and generate a privkey from these whenever needed"
+```
+</details>
+ 
 The command in turn returns the following JSON Object:
 ```
 { 
@@ -307,15 +322,30 @@ The command in turn returns the following JSON Object:
 }
 ```
 Later, one can use `importprivkey` method to add the respective private key to the wallet address:
-
+<details>
+    <summary> Click for command in Linux: </summary>
+    
 ```
 ./komodo-cli -ac_name=MCL importprivkey "UwFidzXW7iaKozsyb2JWmPTV2JZAapkXFyDWtMEB8a6fv1nnoFmk"
 ```
+</details>
+
+<details>
+    <summary> Click for command in Windows: </summary>
+    
+```
+komodo-cli.exe -ac_name=MCL importprivkey "UwFidzXW7iaKozsyb2JWmPTV2JZAapkXFyDWtMEB8a6fv1nnoFmk"
+```
+</details>
+
 Now, the owner of the assets needs to keep a record of the keyword combination safely to generate the respective privkey whenever needed.
-**Remember that private keys should always be kept secret and so are the keywords!** 
+**Remember that private keys should always be kept secret and so are the keywords!**
+
 ## Taking Backup of Wallet
 
 Backing up the `wallet.dat` file is very essential as it holds the assets of one.
+
+### Linux
 On a Linux machine, the file could be found in: `~/.komodo/MCL/wallet.dat`
 
 One method to backup this file is to archive a copy of the file.
@@ -452,7 +482,7 @@ komodo-cli.exe -ac_name=MCL getinfo
 </details>
 
 <details>
-<summary> A typical result is given below: </summary>
+    <summary> A typical result is given below. Note that the <b>synced status</b> is false: </summary>
 
 ```
 {
@@ -501,23 +531,60 @@ komodo-cli.exe -ac_name=MCL getinfo
 
 ```getinfo``` command returns important details such as the version of MARMARA through ```"version"```; synchronization status of your node through ```synced``` (this parameter's value is true if the parameters "blocks" and "longestchain" are equal ); difficulty of the chain through ```"difficulty"```; number of nearest connected nodes to the chain through ```"connections"```; the pubkey with which you are connected to the chain through ```"pubkey":```
 
-- ```getpeerinfo``` 
+- ```getpeerinfo``` command returns detailed information on nearest connected nodes to the chain around your node.
+
+<details>
+    <summary> Click for command in Linux: </summary>
+    
 ```
 ./komodo-cli -ac_name=MCL getpeerinfo  
 ```
-This command returns detailed information on nearest connected nodes to the chain around your node.
-- ```marmarainfo```  
+</details>
+<details>
+    <summary> Click for command in Windows: </summary>
+    
+```
+komodo-cli.exe -ac_name=MCL getpeerinfo  
+```
+</details>
+
+- ```marmarainfo```
+
+<details>
+    <summary> Click for command in Linux: </summary>
+    
 ```
 ./komodo-cli -ac_name=MCL marmarainfo 0 0 0 0 pubkey
 ```
+</details>
+<details>
+    <summary> Click for command in Windows: </summary>
+    
+```
+komodo-cli.exe -ac_name=MCL marmarainfo 0 0 0 0 pubkey
+```
+</details>
+
 ```marmarainfo``` command returns important details such as the normal amount in the pubkey through ```"myPubkeyNormalAmount"```; the activated amount through  ```"myActivatedAmount"```; the details of credit loops made through ```"Loops"```; the total amount locked in credit loops through ```"TotalLockedInLoop"```; the number of credit loops closed through ```"numclosed"```; and the details of credit loops closed through ```"closed"```.
 
 ## Activating and Deactivating Coins
 
-- ```marmaralock``` is used to activate the coins. Active coins are needed for staking and if there are none then even if the staking mode is on, no blocks would be found through staking. The entire command is given below and the **amount** is to be replaced by the amount of coins such as 1000.  
+- ```marmaralock``` is used to activate the coins. Active coins are needed for staking and if there are none then even if the staking mode is on, no blocks would be found through staking. The entire command is given below and the **amount** is to be replaced by the amount of coins such as 1000.
+<details>
+    <summary> Click for command in Linux: </summary>
+    
 ```  
 ./komodo-cli -ac_name=MCL marmaralock amount
 ```
+</details>
+<details>
+    <summary> Click for command in Windows: </summary>
+    
+```  
+komodo-cli.exe -ac_name=MCL marmaralock amount
+```
+</details> 
+
 This command in turn returns a JSON object with the result of the operation and the hex created for it. Note that the _**"hex"**_ given below is for demonstration purposes.
 ```
 {
@@ -525,34 +592,83 @@ This command in turn returns a JSON object with the result of the operation and 
   "hex": "0400008085202f89020039b219200ae4b5c83d77bffce7a8af054d6fb..........e9181f6aac3e1beb1e260e9a1f49ed24e6ac00000000edeb04000000000000000000000000"
 }
 ```
-Now, in order to confirm this transaction, copy the hex returned through the JSON object and validate it through the ```sendrawtrasaction``` command given below.
+Now, in order to confirm this transaction, copy the hex returned through the JSON object and validate it through the ```sendrawtrasaction``` command given below:
+<details>
+    <summary> Click for command in Linux: </summary>
+    
 ```  
 ./komodo-cli -ac_name=MCL sendrawtransaction 0400008085202f89020039b219200ae4b5c83d77bffce7a8af054d6fb..........e9181f6aac3e1beb1e260e9a1f49ed24e6ac00000000edeb04000000000000000000000000
 ```
+</details>
+<details>
+    <summary> Click for command in Windows: </summary>
+    
+```  
+komodo-cli.exe -ac_name=MCL sendrawtransaction 0400008085202f89020039b219200ae4b5c83d77bffce7a8af054d6fb..........e9181f6aac3e1beb1e260e9a1f49ed24e6ac00000000edeb04000000000000000000000000
+```
+</details> 
+
 If the above command gets successfully executed in the blockchain, it gives out a transaction id in response. One may check if this transaction is verified by searching the respective id in the [Marmara Explorer site](http://explorer.marmara.io).
 To see the activated coins, use ```marmarainfo``` command provided earlier and search for the value across the ```"myActivatedAmount"``` parameter. Note that the raw transactions are collected in the mempool and a few blocks may be needed to found to see the transaction recorded on the block.
 
 
 - ```marmaraunlock``` is used deactivate the coins i.e. turn them into normal amount. Normal Amount is utilized for sending payments directly to an address through```sendtoaddress``` command explained earlier. The **amount** is to be replaced by the amount of coins to be deactivated such as 500.   
+
+<details>
+    <summary> Click for command in Linux: </summary>
+    
 ```  
 ./komodo-cli -ac_name=MCL marmaraunlock amount
 ```
+</details> 
+<details>
+    <summary> Click for command in Windows: </summary>
+    
+```  
+komodo-cli.exe -ac_name=MCL marmaraunlock amount
+```
+</details>
+
 In the same way explained earlier, this transaction needs to be validated through the ```sendrawtrasaction``` command given above. For this purpose, copy the hex returned by ```marmaraunlock``` command and use it with ```sendrawtrasaction``` command.
   
 - ```listaddressgroupings``` is used to list the pairs of wallet addresses and respective normal amounts in them. The usage is given in the command below.
+<details>
+    <summary> Click for command in Linux: </summary>
+    
 ```
 ./komodo-cli -ac_name=MCL listaddressgroupings
 ```
+</details>
+<details>
+    <summary> Click for command in Windows: </summary>
+    
+```
+komodo-cli.exe -ac_name=MCL listaddressgroupings
+```
+</details>
+
 
 ## Marmaraamountstat
 
 This command is used to get all the activated, normal and locked in loop amount of the Marmara blockchain irrespective of the owner.If the begin_height and end_height inputs are set to zero(0), it gets the entire set of data from blocks.
 
+<details>
+    <summary> Click for command in Linux: </summary>
+    
 ```
 ./komodo-cli -ac_name=MCL marmaraamountstat begin_height end_height
 ```
+</details>
 
-Example:
+<details>
+    <summary> Click for command in Windows: </summary>
+    
+```
+komodo-cli.exe -ac_name=MCL marmaraamountstat begin_height end_height
+```
+</details>
+
+Example for Linux OS:
 
 ```
 ./komodo-cli -ac_name=MCL marmaraamountstat 50000 60000
