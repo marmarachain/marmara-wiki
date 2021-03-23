@@ -62,7 +62,7 @@ Newcomers need to wait for all the blocks to be downloaded to their machine. To 
 
 Stop the Marmara blockchain by executing the following command:
 <details>
-    <summary> Click for command in Linux: </summary>
+    <summary> Linux: </summary>
     
 ```	
 ./komodo-cli -ac_name=MCL stop
@@ -70,7 +70,7 @@ Stop the Marmara blockchain by executing the following command:
 </details>
 
 <details>
-    <summary> Click for command in Windows: </summary>
+    <summary> Windows: </summary>
     
 ```	
 komodo-cli.exe -ac_name=MCL stop
@@ -80,7 +80,7 @@ komodo-cli.exe -ac_name=MCL stop
 
 To install bootstrap from the command line, execute the following command:
 <details>
-    <summary> Click for command in Linux: </summary>
+    <summary> Linux: </summary>
     
 ```
 wget https://eu.bootstrap.dexstats.info/MCL-bootstrap.tar.gz
@@ -95,7 +95,7 @@ tar -xvf MCL-bootstrap.tar.gz -C .komodo/MCL
 Now, relaunch the Marmara Chain by using the following command:
 
 <details>
-    <summary> Click for command in Linux: </summary>
+    <summary> Linux: </summary>
     
 ```
 ./komodod -ac_name=MCL -ac_supply=2000000 -ac_cc=2 -addnode=37.148.210.158 -addnode=37.148.212.36 -addnode=149.202.158.145 -addressindex=1 -spentindex=1 -ac_marmara=1 -ac_staked=75 -ac_reward=3000000000 &
@@ -103,7 +103,7 @@ Now, relaunch the Marmara Chain by using the following command:
 </details>
 
 <details>
-    <summary> Click for command in Windows: </summary>
+    <summary> Windows: </summary>
     
 ```
 komodod.exe -ac_name=MCL -ac_supply=2000000 -ac_cc=2 -addnode=37.148.210.158 -addnode=37.148.212.36 -addnode=149.202.158.145 -addressindex=1 -spentindex=1 -ac_marmara=1 -ac_staked=75 -ac_reward=3000000000 &
@@ -119,7 +119,7 @@ To use Marmara Credit Loops, a user must have a **pubkey** and launch the chain 
 In order to get a pubkey, launch the Marmara Chain with the normal launch parameters and execute the [getnewaddress](https://developers.komodoplatform.com/basic-docs/smart-chains/smart-chain-api/wallet.html#getnewaddress) API command:
 
 <details>
-    <summary> Click for command in Linux: </summary>
+    <summary> Linux: </summary>
     
 ```	
 ./komodo-cli -ac_name=MCL getnewaddress
@@ -127,7 +127,7 @@ In order to get a pubkey, launch the Marmara Chain with the normal launch parame
 </details>
 
 <details>
-    <summary> Click for command in Windows: </summary>
+    <summary> Windows: </summary>
     
 ```	
 komodo-cli.exe -ac_name=MCL getnewaddress
@@ -144,7 +144,7 @@ DO_NOT_USE_THIS_ADDRESSgg5jonaes1J5L786
 
 Now, execute the [validateaddress](https://developers.komodoplatform.com/basic-docs/smart-chains/smart-chain-api/util.html#validateaddress) command.
 <details>
-    <summary> Click for command in Linux: </summary>
+    <summary> Linux: </summary>
     
 ```	
 ./komodo-cli -ac_name=MCL validateaddress DO_NOT_USE_THIS_ADDRESSgg5jonaes1J5L786
@@ -152,7 +152,7 @@ Now, execute the [validateaddress](https://developers.komodoplatform.com/basic-d
 </details>
 
 <details>
-    <summary> Click for command in Windows: </summary>
+    <summary> Windows: </summary>
     
 ```	
 komodo-cli.exe -ac_name=MCL validateaddress DO_NOT_USE_THIS_ADDRESSgg5jonaes1J5L786
@@ -170,7 +170,7 @@ komodo-cli.exe -ac_name=MCL validateaddress DO_NOT_USE_THIS_ADDRESSgg5jonaes1J5L
 This will be your MCL pubkey, make sure to note it. You must now indicate it to the daemon. In order do this, first **stop** the daemon using the following command:
 
 <details>
-    <summary> Click for command in Linux: </summary>
+    <summary> Linux: </summary>
     
 ```	
 ./komodo-cli -ac_name=MCL stop
@@ -178,7 +178,7 @@ This will be your MCL pubkey, make sure to note it. You must now indicate it to 
 </details> 
 
 <details>
-    <summary> Click for command in Windows: </summary>
+    <summary> Windows: </summary>
     
 ```	
 komodo-cli.exe -ac_name=MCL stop
@@ -190,7 +190,7 @@ komodo-cli.exe -ac_name=MCL stop
 Relaunch your daemon using the required parameters, and make sure to include your pubkey as an additional parameter. For example:
 
 <details>
-    <summary> Click for command in Linux: </summary>
+    <summary> Linux: </summary>
     
 ```	
 ./komodod -ac_name=MCL -ac_supply=2000000 -ac_cc=2 -addnode=37.148.210.158 -addnode=37.148.212.36 -addnode=149.202.158.145 -addressindex=1 -spentindex=1 -ac_marmara=1 -ac_staked=75 -ac_reward=3000000000 -gen -genproclimit=1 -pubkey=DO_NOT_USE_THIS_ADDRESS019n79b0921a1be6d3ca6f9e8a050mar17eb845fe46b9d756 &
@@ -198,7 +198,7 @@ Relaunch your daemon using the required parameters, and make sure to include you
 </details>
 
 <details>
-    <summary> Click for command in Windows: </summary>
+    <summary> Windows: </summary>
     
 ```	
 komodod.exe -ac_name=MCL -ac_supply=2000000 -ac_cc=2 -addnode=37.148.210.158 -addnode=37.148.212.36 -addnode=149.202.158.145 -addressindex=1 -spentindex=1 -ac_marmara=1 -ac_staked=75 -ac_reward=3000000000 -gen -genproclimit=1 -pubkey=DO_NOT_USE_THIS_ADDRESS019n79b0921a1be6d3ca6f9e8a050mar17eb845fe46b9d756 &
@@ -220,7 +220,7 @@ The `dumpprivkey` method reveals the private key corresponding to the indicated 
 The command for this is given below for demo purposes.
 
 <details>
-    <summary> Click for command in Linux: </summary>
+    <summary> Linux: </summary>
     
 ```
 ./komodo-cli -ac_name=MCL dumpprivkey "PWqwYaWNEVT7V9SdfFHARWnoB7vcpSfdvs"
@@ -228,7 +228,7 @@ The command for this is given below for demo purposes.
 </details>
 
 <details>
-    <summary> Click for command in Windows: </summary>
+    <summary> Windows: </summary>
     
 ```
 komodo-cli.exe -ac_name=MCL dumpprivkey "PWqwYaWNEVT7V9SdfFHARWnoB7vcpSfdvs"
@@ -246,7 +246,7 @@ The `importprivkey` method adds a private key (as returned by dumpprivkey) to yo
 The simplest form of command for this is given below for demo purposes.
 
 <details>
-    <summary> Click for command in Linux: </summary>
+    <summary> Linux: </summary>
     
 ```
 ./komodo-cli -ac_name=MCL importprivkey "DONOTUSETHISxxxxxxxxxxxxxxxxx7KkCmRnnSg7iXvRUqhYoxC9Y"
@@ -254,7 +254,7 @@ The simplest form of command for this is given below for demo purposes.
 </details>
 
 <details>
-    <summary> Click for command in Windows: </summary>
+    <summary> Windows: </summary>
     
 ```
 komodo-cli.exe -ac_name=MCL importprivkey "DONOTUSETHISxxxxxxxxxxxxxxxxx7KkCmRnnSg7iXvRUqhYoxC9Y"
@@ -268,7 +268,7 @@ R9z796AehK5b6NCPeVkGUHSpJnawerf8oP
 Now, the wallet address can be validated through ```validateaddress``` to get the MCL pubkey:
 
 <details>
-    <summary> Click for command in Linux: </summary>
+    <summary> Linux: </summary>
     
 ```
 ./komodo-cli -ac_name=MCL validateaddress R9z796AehK5b6NCPeVkGUHSpJnawerf8oP
@@ -276,7 +276,7 @@ Now, the wallet address can be validated through ```validateaddress``` to get th
 </details>
 
 <details>
-    <summary> Click for command in Windows: </summary>
+    <summary> Windows: </summary>
     
 ```
 komodo-cli.exe -ac_name=MCL validateaddress R9z796AehK5b6NCPeVkGUHSpJnawerf8oP
@@ -296,7 +296,7 @@ For this purpose, create a set of keywords that have **no special characters** i
 Then use the following command to get the respective privkey generated:
 
 <details>
-    <summary> Click for command in Linux: </summary>
+    <summary> Linux: </summary>
     
 ```
 ./komodo-cli -ac_name=MCL convertpassphrase "You can create your own keywords and generate a privkey from these whenever needed"
@@ -304,7 +304,7 @@ Then use the following command to get the respective privkey generated:
 </details>
 
 <details>
-    <summary> Click for command in Windows: </summary>
+    <summary> Windows: </summary>
     
 ```
 komodo-cli.exe -ac_name=MCL convertpassphrase "You can create your own keywords and generate a privkey from these whenever needed"
@@ -323,7 +323,7 @@ The command in turn returns the following JSON Object:
 ```
 Later, one can use `importprivkey` method to add the respective private key to the wallet address:
 <details>
-    <summary> Click for command in Linux: </summary>
+    <summary> Linux: </summary>
     
 ```
 ./komodo-cli -ac_name=MCL importprivkey "UwFidzXW7iaKozsyb2JWmPTV2JZAapkXFyDWtMEB8a6fv1nnoFmk"
@@ -331,7 +331,7 @@ Later, one can use `importprivkey` method to add the respective private key to t
 </details>
 
 <details>
-    <summary> Click for command in Windows: </summary>
+    <summary> Windows: </summary>
     
 ```
 komodo-cli.exe -ac_name=MCL importprivkey "UwFidzXW7iaKozsyb2JWmPTV2JZAapkXFyDWtMEB8a6fv1nnoFmk"
@@ -367,7 +367,7 @@ tar -czvf ~/2020-08-09-wallet_backup.dat.tgz ~/2020-08-09-wallet_backup.dat
 
 The following command helps to check the mode of the node:
 <details>
-    <summary> Click for command in Linux: </summary>
+    <summary> Linux: </summary>
     
 ```	 
 ./komodo-cli -ac_name=MCL getgenerate
@@ -375,7 +375,7 @@ The following command helps to check the mode of the node:
 </details>
 
 <details>
-    <summary> Click for command in Windows: </summary>
+    <summary> Windows: </summary>
     
 ```	 
 komodo-cli.exe -ac_name=MCL getgenerate
@@ -398,7 +398,7 @@ From above, it can be seen that the node is in the **mining** node.
 To change mode of the node to **staking**, execute the command below:
 
 <details>
-    <summary> Click for command in Linux: </summary>
+    <summary> Linux: </summary>
     
 ```	   
  ./komodo-cli -ac_name=MCL setgenerate true 0
@@ -406,7 +406,7 @@ To change mode of the node to **staking**, execute the command below:
 </details>
 
 <details>
-    <summary> Click for command in Windows: </summary>
+    <summary> Windows: </summary>
     
 ```	   
 komodo-cli.exe -ac_name=MCL setgenerate true 0
@@ -416,14 +416,14 @@ komodo-cli.exe -ac_name=MCL setgenerate true 0
 Now checking the status of the node:
 
 <details>
-    <summary> Click for command in Linux: </summary>
+    <summary> Linux: </summary>
     
 ```
  ./komodo-cli -ac_name=MCL getgenerate
 ```
 </details>
 <details>
-    <summary> Click for command in Windows: </summary>
+    <summary> Windows: </summary>
     
 ```
 komodo-cli.exe -ac_name=MCL getgenerate
@@ -445,7 +445,7 @@ One may directly send a payment to a given address by issuing the following comm
 The amount is rounded to the nearest 0.00000001. A transaction fee is deducted for the transaction being made from one's Normal Amount.
 
 <details>
-    <summary> Click for command in Linux: </summary>
+    <summary> Linux: </summary>
     
 ```
 ./komodo-cli -ac_name=MCL sendtoaddress "MCL_address" amount
@@ -453,7 +453,7 @@ The amount is rounded to the nearest 0.00000001. A transaction fee is deducted f
 </details>
 
 <details>
-    <summary> Click for command in Windows: </summary>
+    <summary> Windows: </summary>
     
 ```
 komodo-cli.exe -ac_name=MCL sendtoaddress "MCL_address" amount
@@ -467,14 +467,14 @@ komodo-cli.exe -ac_name=MCL sendtoaddress "MCL_address" amount
 The following commands are useful for getting details about your node and wallet.
 - ```getinfo```
 <details>
-    <summary> Click for command in Linux: </summary>
+    <summary> Linux: </summary>
     
 ```
 ./komodo-cli -ac_name=MCL getinfo
 ```
 </details>
 <details>
-    <summary> Click for command in Windows: </summary>
+    <summary> Windows: </summary>
     
 ```
 komodo-cli.exe -ac_name=MCL getinfo
@@ -534,14 +534,14 @@ komodo-cli.exe -ac_name=MCL getinfo
 - ```getpeerinfo``` command returns detailed information on nearest connected nodes to the chain around your node.
 
 <details>
-    <summary> Click for command in Linux: </summary>
+    <summary> Linux: </summary>
     
 ```
 ./komodo-cli -ac_name=MCL getpeerinfo  
 ```
 </details>
 <details>
-    <summary> Click for command in Windows: </summary>
+    <summary> Windows: </summary>
     
 ```
 komodo-cli.exe -ac_name=MCL getpeerinfo  
@@ -551,14 +551,14 @@ komodo-cli.exe -ac_name=MCL getpeerinfo
 - ```marmarainfo```
 
 <details>
-    <summary> Click for command in Linux: </summary>
+    <summary> Linux: </summary>
     
 ```
 ./komodo-cli -ac_name=MCL marmarainfo 0 0 0 0 pubkey
 ```
 </details>
 <details>
-    <summary> Click for command in Windows: </summary>
+    <summary> Windows: </summary>
     
 ```
 komodo-cli.exe -ac_name=MCL marmarainfo 0 0 0 0 pubkey
@@ -571,14 +571,14 @@ komodo-cli.exe -ac_name=MCL marmarainfo 0 0 0 0 pubkey
 
 - ```marmaralock``` is used to activate the coins. Active coins are needed for staking and if there are none then even if the staking mode is on, no blocks would be found through staking. The entire command is given below and the **amount** is to be replaced by the amount of coins such as 1000.
 <details>
-    <summary> Click for command in Linux: </summary>
+    <summary> Linux: </summary>
     
 ```  
 ./komodo-cli -ac_name=MCL marmaralock amount
 ```
 </details>
 <details>
-    <summary> Click for command in Windows: </summary>
+    <summary> Windows: </summary>
     
 ```  
 komodo-cli.exe -ac_name=MCL marmaralock amount
@@ -594,14 +594,14 @@ This command in turn returns a JSON object with the result of the operation and 
 ```
 Now, in order to confirm this transaction, copy the hex returned through the JSON object and validate it through the ```sendrawtrasaction``` command given below:
 <details>
-    <summary> Click for command in Linux: </summary>
+    <summary> Linux: </summary>
     
 ```  
 ./komodo-cli -ac_name=MCL sendrawtransaction 0400008085202f89020039b219200ae4b5c83d77bffce7a8af054d6fb..........e9181f6aac3e1beb1e260e9a1f49ed24e6ac00000000edeb04000000000000000000000000
 ```
 </details>
 <details>
-    <summary> Click for command in Windows: </summary>
+    <summary> Windows: </summary>
     
 ```  
 komodo-cli.exe -ac_name=MCL sendrawtransaction 0400008085202f89020039b219200ae4b5c83d77bffce7a8af054d6fb..........e9181f6aac3e1beb1e260e9a1f49ed24e6ac00000000edeb04000000000000000000000000
@@ -615,14 +615,14 @@ To see the activated coins, use ```marmarainfo``` command provided earlier and s
 - ```marmaraunlock``` is used deactivate the coins i.e. turn them into normal amount. Normal Amount is utilized for sending payments directly to an address through```sendtoaddress``` command explained earlier. The **amount** is to be replaced by the amount of coins to be deactivated such as 500.   
 
 <details>
-    <summary> Click for command in Linux: </summary>
+    <summary> Linux: </summary>
     
 ```  
 ./komodo-cli -ac_name=MCL marmaraunlock amount
 ```
 </details> 
 <details>
-    <summary> Click for command in Windows: </summary>
+    <summary> Windows: </summary>
     
 ```  
 komodo-cli.exe -ac_name=MCL marmaraunlock amount
@@ -633,14 +633,14 @@ In the same way explained earlier, this transaction needs to be validated throug
   
 - ```listaddressgroupings``` is used to list the pairs of wallet addresses and respective normal amounts in them. The usage is given in the command below.
 <details>
-    <summary> Click for command in Linux: </summary>
+    <summary> Linux: </summary>
     
 ```
 ./komodo-cli -ac_name=MCL listaddressgroupings
 ```
 </details>
 <details>
-    <summary> Click for command in Windows: </summary>
+    <summary> Windows: </summary>
     
 ```
 komodo-cli.exe -ac_name=MCL listaddressgroupings
@@ -653,7 +653,7 @@ komodo-cli.exe -ac_name=MCL listaddressgroupings
 This command is used to get all the activated, normal and locked in loop amount of the Marmara blockchain irrespective of the owner.If the begin_height and end_height inputs are set to zero(0), it gets the entire set of data from blocks.
 
 <details>
-    <summary> Click for command in Linux: </summary>
+    <summary> Linux: </summary>
     
 ```
 ./komodo-cli -ac_name=MCL marmaraamountstat begin_height end_height
@@ -661,7 +661,7 @@ This command is used to get all the activated, normal and locked in loop amount 
 </details>
 
 <details>
-    <summary> Click for command in Windows: </summary>
+    <summary> Windows: </summary>
     
 ```
 komodo-cli.exe -ac_name=MCL marmaraamountstat begin_height end_height
