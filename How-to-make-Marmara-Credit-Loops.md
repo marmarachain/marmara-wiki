@@ -27,14 +27,14 @@ This command is used to get a credit from an issuer or an endorser. When asking 
 **Scenario 1:** Two nodes are making a credit loop for the first time. This credit loop may be created for a sale of a good or service in the market. In such case, the holder (the one selling the product/service) should request for a credit from the issuer (the one paying the product/service) by writing down the following command:
 
 <details>
-    <summary> Click for command in Linux: </summary>
+    <summary> Linux: </summary>
     
 ```
 ./komodo-cli -ac_name=MCL marmarareceive senderpk amount currency matures '{"avalcount":"n"}'
 ```
 </details>
 <details>
-    <summary> Click for command in Windows: </summary>
+    <summary> Windows: </summary>
     
 ```
 komodo-cli.exe -ac_name=MCL marmarareceive senderpk amount currency matures {\"avalcount\":\"n\"}
@@ -55,7 +55,7 @@ komodo-cli.exe -ac_name=MCL marmarareceive senderpk amount currency matures {\"a
 This marmarareceive call generates a hex code. This HEXCODE needs to be verified by the holder by executing the ```sendrawtransaction``` command:
 
 <details>
-    <summary> Click for command in Linux: </summary>
+    <summary> Linux: </summary>
     
 ```
 ./komodo-cli -ac_name=MCL sendrawtransaction HEXCODE
@@ -63,7 +63,7 @@ This marmarareceive call generates a hex code. This HEXCODE needs to be verified
 </details>
 
 <details>
-    <summary> Click for command in Windows: </summary>
+    <summary> Windows: </summary>
     
 ```
 komodo-cli.exe -ac_name=MCL sendrawtransaction HEXCODE
@@ -75,7 +75,7 @@ Once this command is executed, a transaction id named ```txid``` gets generated.
 ```marmarareceivelist``` method would be executed by the issuer by the following command:
 
 <details>
-    <summary> Click for command in Linux: </summary>
+    <summary> Linux: </summary>
     
 ```
 ./komodo-cli -ac_name=MCL marmarareceivelist pubkey
@@ -83,7 +83,7 @@ Once this command is executed, a transaction id named ```txid``` gets generated.
 </details>
 
 <details>
-    <summary> Click for command in Windows: </summary>
+    <summary> Windows: </summary>
     
 ```
 komodo-cli.exe -ac_name=MCL marmarareceivelist pubkey
@@ -98,14 +98,14 @@ komodo-cli.exe -ac_name=MCL marmarareceivelist pubkey
 This command is only used by issuer, the first node to create/issue a credit. By this, a credit is also transferred to the first holder, i.e. the second node. Many of the parameters for a credit loop is decided between the issuer and the first holder.
 ```marmaraissue``` method takes in the following arguments: 
 <details>
-    <summary> Click for command in Linux: </summary>
+    <summary> Linux: </summary>
     
 ```
 ./komodo-cli -ac_name=MCL marmaraissue receiverpk '{"avalcount":"n", "autosettlement":"true"|"false", "autoinsurance":"true"|"false", "disputeexpires":"offset", "EscrowOn":"true"|"false", "BlockageAmount":"amount" }' requesttxid
 ```
 </details>
 <details>
-    <summary> Click for command in Windows: </summary>
+    <summary> Windows: </summary>
     
 ```
 komodo-cli.exe -ac_name=MCL marmaraissue receiverpk "{\"avalcount\":\"n\", \"autosettlement\":\"true"|"false\", \"autoinsurance\":\"true"|"false\", \"disputeexpires\":\"offset\", \"EscrowOn\":\"true"|"false\", \"BlockageAmount\":\"amount\"}" requesttxid
@@ -130,14 +130,14 @@ komodo-cli.exe -ac_name=MCL marmaraissue receiverpk "{\"avalcount\":\"n\", \"aut
 
 A typical example of a ```marmaraissue``` command to complete the credit loop by the issuer is given below:
 <details>
-    <summary> Click for command in Linux: </summary>
+    <summary> Linux: </summary>
     
 ```
 ./komodo-cli -ac_name=MCL marmaraissue receiverpk '{"avalcount":"0", "autosettlement":"true", "autoinsurance":"true", "disputeexpires":"0", "EscrowOn":"false", "BlockageAmount":"0" }' requesttxid
 ```
 </details>
 <details>
-    <summary> Click for command in Windows: </summary>
+    <summary> Windows: </summary>
     
 ```
 komodo-cli.exe -ac_name=MCL marmaraissue receiverpk "{\"avalcount\":\"0\" \"autosettlement\":\"true\" \"autoinsurance\":\"true\" \"disputeexpires\":\"offset\" \"EscrowOn\":\"false\" \"BlockageAmount\":\"0\"}" requesttxid
@@ -146,14 +146,14 @@ komodo-cli.exe -ac_name=MCL marmaraissue receiverpk "{\"avalcount\":\"0\" \"auto
 
 This ```marmaraissue``` command in turn returns a hex code response, and now the issuer has to execute the sendrawtransaction method to get the transaction executed on the blockchain as follows:
 <details>
-    <summary> Click for command in Linux: </summary>
+    <summary> Linux: </summary>
     
 ```
 ./komodo-cli -ac_name=MCL sendrawtransaction HEXCODE
 ```
 </details>
 <details>
-    <summary> Click for command in Windows: </summary>
+    <summary> Windows: </summary>
     
 ```
 komodo-cli.exe -ac_name=MCL sendrawtransaction HEXCODE
@@ -165,14 +165,14 @@ This creates a credit loop between the issuer and the holder. The credits locked
 
 To display the credit loop between the issuer and the holder, the following ```marmaracreditloop``` command may be executed:
 <details>
-    <summary> Click for command in Linux: </summary>
+    <summary> Linux: </summary>
     
 ```
 ./komodo-cli -ac_name=MCL marmaracreditloop txid
 ```
 </details>
 <details>
-    <summary> Click for command in Windows: </summary>
+    <summary> Windows: </summary>
     
 ```
 komodo-cli.exe -ac_name=MCL marmaracreditloop txid
@@ -188,14 +188,14 @@ One should bear in mind that endorsers lose the 3x staking power when a credit i
 
 For this purpose, the new holder makes a ```marmarareceive``` request to the endorser to get the credit for selling the goods/services by the following command:
 <details>
-    <summary> Click for command in Linux: </summary>
+    <summary> Linux: </summary>
     
 ```
 ./komodo-cli -ac_name=MCL marmarareceive senderpk batontxid '{"avalcount":"n"}'
 ```
 </details>
 <details>
-    <summary> Click for command in Windows: </summary>
+    <summary> Windows: </summary>
     
 ```
 komodo-cli.exe -ac_name=MCL marmarareceive senderpk batontxid {\"avalcount\":\"n\"}
@@ -208,14 +208,14 @@ komodo-cli.exe -ac_name=MCL marmarareceive senderpk batontxid {\"avalcount\":\"n
 
 This marmarareceive call generates a hex code. This HEXCODE needs to be verified by the new holder by executing the ```sendrawtransaction``` command:
 <details>
-    <summary> Click for command in Linux: </summary>
+    <summary> Linux: </summary>
     
 ```
 ./komodo-cli -ac_name=MCL sendrawtransaction HEXCODE
 ```
 </details>
 <details>
-    <summary> Click for command in Windows: </summary>
+    <summary> Windows: </summary>
     
 ```
 komodo-cli.exe -ac_name=MCL sendrawtransaction HEXCODE
@@ -224,14 +224,14 @@ komodo-cli.exe -ac_name=MCL sendrawtransaction HEXCODE
 Once this command is executed, a transaction id named ```txid``` gets generated. This ```txid``` along with the ```receiverpk``` needs to be communicated to the endorser to complete the credit loop. But, an alternative to this communication would be the use of ```marmarareceivelist``` method which could be used by the endorser to see the receive requests made to himself/herself.
 Then, the endorser executes the following ```marmaratransfer```command to get the credits transferred to the new holder:
 <details>
-    <summary> Click for command in Linux: </summary>
+    <summary> Linux: </summary>
     
 ```
 ./komodo-cli -ac_name=MCL marmaratransfer receiverpk '{"avalcount":"n"}' requesttxid
 ```
 </details>
 <details>
-    <summary> Click for command in Windows: </summary>
+    <summary> Windows: </summary>
     
 ```
 komodo-cli.exe -ac_name=MCL marmaratransfer receiverpk {\"avalcount\":\"n\"} requesttxid
