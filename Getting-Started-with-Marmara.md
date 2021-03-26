@@ -291,7 +291,7 @@ For Linux OS; as previously explained, one can make use of the command `./komodo
 
 However, the `Privkey` received in this way consists of a hard to remember combination of letters and number. Note that keeping this privkey safe and secure and reachable only by you is very important and essential way to reach your assets. Hence, one can generate a privkey from his/her own set of words and keep a record of these words to generate the respective privkey whenerever needed.
 
-For this purpose, create a set of keywords that have **no special characters** in them. For instance: `"You can create your own keywords and generate a privkey from these whenever needed"`.
+For this purpose, create a set of 12 seed words that have **no special characters** in them. For instance: `"can create your own keywords and generate privkey from these whenever needed"`.
 
 Then use the following command to get the respective privkey generated:
 
@@ -299,7 +299,7 @@ Then use the following command to get the respective privkey generated:
     <summary> Linux: </summary>
     
 ```
-./komodo-cli -ac_name=MCL convertpassphrase "You can create your own keywords and generate a privkey from these whenever needed"
+./komodo-cli -ac_name=MCL convertpassphrase "can create your own keywords and generate privkey from these whenever needed"
 ```
 </details>
 
@@ -307,18 +307,18 @@ Then use the following command to get the respective privkey generated:
     <summary> Windows: </summary>
     
 ```
-komodo-cli.exe -ac_name=MCL convertpassphrase "You can create your own keywords and generate a privkey from these whenever needed"
+komodo-cli.exe -ac_name=MCL convertpassphrase "can create your own keywords and generate privkey from these whenever needed"
 ```
 </details>
  
 The command in turn returns the following JSON Object:
 ```
-{ 
-    "agamapassphrase": "You can create your own keywords and generate a privkey from these whenever needed",
-    "address": "RB8v8b9yt9U6YSuznLieSU8ULCnT77YM8f",
-    "pubkey": "02b8aa5cb5ff919b773656b0701f8448bb226b62e966c8439dd90183c8c3efdc24", 
-    "privkey": "d83991e517c0d73846171c105dely8e77e548c1faa21ed8efbb9b6ffe4595446a", 
-    "wif": "UwFidzXW7iaKozsyb2JWmPTV2JZAapkXFyDWtMEB8a6fv1nnoFmk"
+{
+  "agamapassphrase": "can create your own keywords and generate privkey from these whenever needed",
+  "address": "RCna416S62uNVAKMwRuFtmRH2X3xJuTidD",
+  "pubkey": "03a3c416d3bafe44448dcb3a56e5dd13db5cc3e6992051a61a2f5675b4796c0d7a",
+  "privkey": "9005f5b2593ab3e662e1330ceca848d62fb2021165c6484ac7037cb4efc5317e",
+  "wif": "UtqWJyhXjJWYigKyKCm5ML96LvSZFDfZrT2HYXAdGs8byZ3uCMzy"
 }
 ```
 Later, one can use `importprivkey` method to add the respective private key to the wallet address:
@@ -326,7 +326,7 @@ Later, one can use `importprivkey` method to add the respective private key to t
     <summary> Linux: </summary>
     
 ```
-./komodo-cli -ac_name=MCL importprivkey "UwFidzXW7iaKozsyb2JWmPTV2JZAapkXFyDWtMEB8a6fv1nnoFmk"
+./komodo-cli -ac_name=MCL importprivkey "UtqWJyhXjJWYigKyKCm5ML96LvSZFDfZrT2HYXAdGs8byZ3uCMzy"
 ```
 </details>
 
@@ -334,7 +334,7 @@ Later, one can use `importprivkey` method to add the respective private key to t
     <summary> Windows: </summary>
     
 ```
-komodo-cli.exe -ac_name=MCL importprivkey "UwFidzXW7iaKozsyb2JWmPTV2JZAapkXFyDWtMEB8a6fv1nnoFmk"
+komodo-cli.exe -ac_name=MCL importprivkey "UtqWJyhXjJWYigKyKCm5ML96LvSZFDfZrT2HYXAdGs8byZ3uCMzy"
 ```
 </details>
 
