@@ -392,7 +392,7 @@ Once the command given above is executed, the following JSON object gets returne
 ```
 From above, it can be seen that the node is in the **mining** node.
 >```"staking": false``` means that staking is off.
-> ```"generate": false``` means that mining is active.
+> ```"generate": true``` means that mining is active.
 >```"numthreads": 1``` refers to the number of cores used for mining. In this case, this parameter was set to one earlier.
 >
 To change mode of the node to **staking**, execute the command below:
@@ -675,7 +675,7 @@ Example for Linux OS:
 ```
 
 <details>
-<summary> To see the example result of this command click:</summary>
+<summary> Sample Result:</summary>
 
 ```
 {
