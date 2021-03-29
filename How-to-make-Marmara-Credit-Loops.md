@@ -78,7 +78,7 @@ Once this command is executed, a transaction id named ```txid``` gets generated.
     <summary> Linux: </summary>
     
 ```
-./komodo-cli -ac_name=MCL marmarareceivelist pubkey
+./komodo-cli -ac_name=MCL marmarareceivelist pubkey maxage
 ```
 </details>
 
@@ -86,12 +86,12 @@ Once this command is executed, a transaction id named ```txid``` gets generated.
     <summary> Windows: </summary>
     
 ```
-komodo-cli.exe -ac_name=MCL marmarareceivelist pubkey
+komodo-cli.exe -ac_name=MCL marmarareceivelist pubkey maxage
 ```
 </details>
 
-> ```pubkey``` is the pubkey address of the issuer connected to the Marmara Chain
->The response of this command is a list of pair of txid's created by the respective pubkeys.
+> ```pubkey``` is the pubkey address of the issuer connected to the Marmara Chain and the ```maxage``` by default is 24x60
+> The response of this command is a list of pair of txid's created by the respective pubkeys.
 
 - ```marmaraissue```
 
@@ -221,8 +221,10 @@ This marmarareceive call generates a hex code. This HEXCODE needs to be verified
 komodo-cli.exe -ac_name=MCL sendrawtransaction HEXCODE
 ```
 </details>
+
 Once this command is executed, a transaction id named ```txid``` gets generated. This ```txid``` along with the ```receiverpk``` needs to be communicated to the endorser to complete the credit loop. But, an alternative to this communication would be the use of ```marmarareceivelist``` method which could be used by the endorser to see the receive requests made to himself/herself.
 Then, the endorser executes the following ```marmaratransfer```command to get the credits transferred to the new holder:
+
 <details>
     <summary> Linux: </summary>
     
