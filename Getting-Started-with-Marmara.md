@@ -696,6 +696,44 @@ Example for Linux OS:
 ```
 </details>
 
+
+## help
+
+This command is used to get all the methods related to the Marmara smart chain. 
+
+<details>
+    <summary> Linux: </summary>
+    
+```
+./komodo-cli -ac_name=MCL help
+```
+</details>
+
+<details>
+    <summary> Windows: </summary>
+    
+```
+komodo-cli.exe -ac_name=MCL help
+```
+</details>
+One can also check out a specific method's parameters by issuing the following command with the method name mentioned:
+For example:
+<details>
+    <summary> Linux: </summary>
+    
+```
+./komodo-cli -ac_name=MCL help getinfo
+```
+</details>
+
+<details>
+    <summary> Windows: </summary>
+    
+```
+komodo-cli.exe -ac_name=MCL marmaraamountstat 
+```
+</details>
+
 # References
 ---
 For more detailed information on Komodo Antara Framework and its details, please refer to its extended [developer documentation](https://developers.komodoplatform.com/).
