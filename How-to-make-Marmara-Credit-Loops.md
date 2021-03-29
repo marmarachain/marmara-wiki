@@ -91,7 +91,7 @@ komodo-cli.exe -ac_name=MCL marmarareceivelist pubkey maxage
 </details>
 
 > ```pubkey``` is the pubkey address of the issuer connected to the Marmara Chain and the ```maxage``` by default is 24x60
-> The response of this command is a list of pair of txid's created by the respective pubkeys.
+> The response of this command is a list of pair of txid's created by the respective pubkeys for a given max age.
 
 - ```marmaraissue```
 
@@ -251,6 +251,24 @@ Then the endorser executes the ```sendrawtransaction``` command with the hex cod
 >Please Note that ```sendrawtransaction``` command is used after ```marmarareceive```, ```marmaraissue```, ```marmaratransfer``` and ```marmaralock``` to make the results of commands to be executed on blockchain. The usage is presented throughout the scenario 1 and 2.
 
 **In this way, the credit loops can circulate up to 1000th node _within_ the maturity time to buy goods/services.**
+
+- ```marmaraholderloops```
+
+This command returns the open and closed loops which can be constrainted by setting the first and last height and the minimum and maximum amount. The method returns all the available data if all the parameters are set to zero. ```marmaraholderloops``` command is indicated below:
+<details>
+    <summary> Linux: </summary>
+    
+```
+./komodo-cli -ac_name=MCL marmaraholderloops firstheight lastheight minamount maxamount pubkey
+```
+</details>
+<details>
+    <summary> Windows: </summary>
+    
+```
+komodo-cli.exe -ac_name=MCL marmaraholderloops firstheight lastheight minamount maxamount pubkey
+```
+</details>
 
 References
 ---
