@@ -47,7 +47,7 @@ Once completed, follow the steps below to install Marmara Credit Loops smart cha
 #### Clone the Marmara Credit Loops Repository
 ```	
 cd ~
-git clone https://github.com/marmarachain/marmara komodo --branch master --single-branch
+git clone https://github.com/marmarachain/marmara marmara --branch master --single-branch
 ```
 >Skip the following steps and jump to **__Fetch the Zcash Parameters__** step if the system you are using has 8 GB or more RAM.
 
@@ -67,7 +67,7 @@ sudo swapon /swapfile
 ```
 #### Fetch the Zcash Parameters
 ```
-cd komodo
+cd marmara
 ./zcutil/fetch-params.sh
 ./zcutil/build.sh -j$(nproc)
 ```
@@ -142,12 +142,12 @@ brew install wget
 
 ```
 cd ~
-git clone https://github.com/marmarachain/marmara komodo --branch master --single-branch
+git clone https://github.com/marmarachain/marmara marmara --branch master --single-branch
 ```
 
 #### Fetch the Zcash Parameters
 ```
-cd komodo
+cd marmara
 ./zcutil/fetch-params.sh
 ./zcutil/build-mac.sh -j8
 ```
@@ -219,8 +219,8 @@ Press <enter> to keep the current choice[*], or type selection number: 1
 #### Clone the Marmara Repository
 
 ```
-git clone https://github.com/marmarachain/marmara komodo --branch master --single-branch
-cd komodo
+git clone https://github.com/marmarachain/marmara marmara --branch master --single-branch
+cd marmara
 ```
 
 #### Fetch the Zcash Parameters
